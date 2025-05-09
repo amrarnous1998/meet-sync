@@ -44,14 +44,15 @@ export default function NewCalendarPage() {
   });
 
   // Handle form submission
-  const onSubmit = async (values: FormValues) => {
-    if (!user) {
+  const onSubmit = async (values: FormValues) => {    if (!user) {
       setError('You must be logged in to create a calendar.');
       return;
     }
 
     setIsSubmitting(true);
-    setError(null);    try {
+    setError(null);
+    
+    try {
       const { data, error } = await createCalendar(
         user.id,
         values.title,

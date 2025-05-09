@@ -90,10 +90,10 @@ export default function EditCalendarPage({ params }: { params: { id: string } })
     if (!user || !calendar) {
       setError('You must be logged in and have a valid calendar to edit.');
       return;
-    }
-
-    setIsSubmitting(true);
-    setError(null);    try {
+    }    setIsSubmitting(true);
+    setError(null);
+    
+    try {
       const { data, error } = await updateCalendar(params.id, {
         title: values.title,
         description: values.description || undefined, // Convert empty string to undefined
